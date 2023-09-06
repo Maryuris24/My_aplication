@@ -7,7 +7,7 @@
 /* estilo del titulo*/
 
 body{
-    background-image: url("/static/images/fondob.png");
+    background-image: url("./static/images/fondob.png");
     
 
 }
@@ -82,7 +82,7 @@ body{
     position: relative;
     justify-content: center;
     align-content: center;
-    background-image: url(/static/images/fondoc.png);
+    background-image: url(./static/images/fondoc.png);
     background-position: center;
     background-size: 70%;
     background-repeat: repeat-y;
