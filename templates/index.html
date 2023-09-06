@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <link rel="stylesheet" href="static\css\style.css">
+</head>
+<body>
+
+    <!--Titulo-->
+    <header>
+        <div class="titulo">
+            <img src="/static/images/titulo1.png" alt="">
+        </div>
+    </header>
+    
+
+    <!--agregar campos-->
+    <div class="">
+        <div class="container_input">
+            <form action="/listado" method="POST">
+                <div class="all_cont">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" class="input1">
+
+                    <label>Genero</label>
+                    <input type="text" name="genero" class="input1">
+                
+                    <label>Temporadas</label>
+                    <input type="number" name="temporadas" class="input1">
+                
+                    <label>Capítulos</label>
+                    <input type="number" name="capitulos" class="input1">
+                
+                    <label>Estado</label>
+                    <input type="text" name="estado" class="input1">
+                
+                    <button type="submit" class="boton1">Agregar</button>
+                </div> 
+            </form>
+        </div>
+
+         <!-- tabla listado existentes-->
+        <table  class="tabla_lista">
+            <tr>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Temporadas</th>
+                <th>Capítulos</th>
+                <th>Estado</th>
+            </tr>
+
+            {% for list in listado %}
+            <tr>
+                <form action="/editar/{{list.id}}" method="POST" >
+                    <td><input type="text" name="nombre" value="{{list.nombre}}" id="estilo_inputs"
+                        ></td>
+                    <td><input type="text" name="genero" value="{{list.genero}}" id="estilo_inputs"></td>
+                    <td><input type="text" name="temporadas" value="{{list.temporadas}}" id="estilo_inputs"></td>
+                    <td><input type="text" name="capitulos" value="{{list.capitulos}}" id="estilo_inputs"></td>
+                    <td><input type="text" name="estado" value="{{list.estado}}" id="estilo_inputs"></td>
+                    <td>
+                        <div>
+                            <button type="submit" class="boton2" id="boton2">Editar</button>
+                        </div>
+                    </td>
+                    <td><a href="{{url_for('delete', list_name=list.id)}}" class="boton3">Borrar</a></td>
+                    </div>
+                </form>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
