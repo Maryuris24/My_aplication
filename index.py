@@ -91,4 +91,4 @@ def notFound(error=None):
     return response
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', 5000, debug=True)
+    app.run(debug=True, port=1212)
