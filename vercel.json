@@ -2,7 +2,7 @@
     "version":2,
     "builds":[
         {
-            "src": "./controlador.py",
+            "src": "./index.py",
             "use":"@vercel/python"
         }
     ],
