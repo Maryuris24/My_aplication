@@ -7,7 +7,7 @@ app=Flask(__name__)
 
 # Desplega los datos de la colección
 @app.route('/')
-def home():
+def inicio():
     listado = db['listado']
     listadoReceived = listado.find()
     return render_template('index.html', listado = listadoReceived)
@@ -36,7 +36,7 @@ def addList():
             'estado' : estado
         })
 
-        return redirect(url_for('home'))
+        return redirect(url_for('inicio'))
     else:
         return notFound()   
 
@@ -68,7 +68,7 @@ def edit(list_name):
             'message' : list_name + 'actualizado corectamente'
         })
 
-        return redirect(url_for('home'))
+        return redirect(url_for('inicio'))
     else:
         return notFound()
 
@@ -77,7 +77,7 @@ def edit(list_name):
 def delete(list_name):
     listado = db['listado']
     listado.delete_one({'id' : list_name})
-    return redirect(url_for('home'))
+    return redirect(url_for('inicio'))
 
 #Método de error
 @app.errorhandler(404)
